@@ -1,0 +1,48 @@
+@model Tuple<Board, List<Bulletin>>
+
+@{
+    ViewData["Title"] = string.Format("{0} | Ordinatio", Model.Item1.Name);
+}
+
+<main>
+    <div class="board-header">
+        <div class="container">
+            <ul class="list-inline">
+                <li>
+                    <h4 class="m-b-0">
+                        @Html.DisplayFor(model => model.Item1.Name)
+                    </h4>
+                </li>
+                <li>
+                    <a asp-action="Edit" asp-route-id="@Model.Item1.Id">Edit</a>
+                </li>
+                <li>
+                    <a class="btn btn-success" asp-action="Create" asp-controller="Bulletin">New Bulletin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Item2)
+            {
+                <div class="col-lg-3 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4 class="m-t-0">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </h4>
+                            <p>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </p>
+                            <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Bulletin">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Bulletin">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+
+

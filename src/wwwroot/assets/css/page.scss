@@ -1,0 +1,24 @@
+﻿main {
+    .board-header {
+        background-color: #eef2f3;
+        margin-bottom: 2em;
+        padding: 15px 10px;
+    }
+
+    h3, a {
+        display: inline-block;
+    }
+
+    &.page {
+        margin-top: 2em;
+
+        h3 {
+            margin-bottom: 1.25em;
+        }
+
+        .btn {
+            margin-bottom: 1em;
+            margin-left: 2em;
+        }
+    }
+}

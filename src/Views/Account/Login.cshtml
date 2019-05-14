@@ -1,0 +1,31 @@
+﻿@model LoginViewModel
+
+<main class="container page">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h2 class="text-center">
+            Login
+        </h2>
+        <p class="text-center">
+            Enter your login details below.
+        </p>
+        <form class="form-horizontal" asp-controller="Account" asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email">Email address</label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" class="form-control">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+

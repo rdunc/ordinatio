@@ -1,0 +1,56 @@
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Ordinatio</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-action="Index" asp-controller="Board">
+                                Boards
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-action="Logout" asp-controller="Account">
+                                Logout
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img class="img-circle" alt="user avatar" width="24" height="24" src="~/assets/default-avatar.png"/>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-action="Register" asp-controller="Account">
+                                Register
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Login" asp-controller="Account">
+                                Login
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
